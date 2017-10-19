@@ -14,6 +14,9 @@ before_script:
   - npm install --global gulp-cli
   - npm install
   - gulp --production
+
+before_install:
+  - mysql -e 'CREATE DATABASE testing;'
   
 script:
   - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
