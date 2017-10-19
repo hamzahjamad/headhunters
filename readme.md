@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hamzahjamad/headhunters.svg?branch=master)](https://travis-ci.org/hamzahjamad/headhunters)
+
 ## About HeadHunters
 
 Headhunters is... what matter is i create it using Laravel.
