@@ -47,15 +47,21 @@ class BatchController extends Controller
             'name'=>'required',
         ]);
 
-        $imageName = str_random(10).date('Y-m-d'). '.' .$request->file('design')->getClientOriginalExtension();
-        $path = 'storage/designs/';
-        $full_path = $path.$imageName;
 
-        $request->file('design')->move(base_path() . '/public/'.$path, $imageName);
 
         $batch = new Batch;
         $batch->name = $request->name;
-        $batch->design = $full_path;
+
+
+        if($request->file('design')){
+            $imageName = str_random(10).date('Y-m-d'). '.' .$request->file('design')->getClientOriginalExtension();
+            $path = 'storage/designs/';
+            $full_path = $path.$imageName;
+            $request->file('design')->move(base_path() . '/public/'.$path, $imageName);
+
+            $batch->design = $full_path;
+        }
+
         $batch->save();
 
 

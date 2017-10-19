@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/users', 'UserController@index')->name('users');
+Route::post('/users/{id}/update-access', 'UserController@updateAccess')->name('users.access');
+
 Route::resource('/batches/{bid}/recipients', 'RecipientController',  ['only' => [
     'create', 'edit', 'store', 'update', 'destroy',
 ]]);

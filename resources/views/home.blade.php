@@ -15,7 +15,10 @@
                     @endif
 
                     @if(Auth::user()->have_access)
-                        <a href="/batches">View all batches</a>
+                        <ul>
+                            <li><a href="/batches">View all batches</a></li>
+                            <li><a href="/users">View all users</a></li>
+                        </ul>
                     @else
                         <div class="alert alert-info" role="alert">Your account are still not active, please ask admin to activate your account.</div>    
                     @endif
