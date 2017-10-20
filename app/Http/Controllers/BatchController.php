@@ -21,7 +21,7 @@ class BatchController extends Controller
      */
     public function index()
     {
-        $batches = Batch::paginate(5);
+        $batches = Batch::orderBy('id', 'DESC')->paginate(5);
         return view('batch-all', compact('batches'));
     }
 
@@ -74,12 +74,30 @@ class BatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $batch = Batch::find($id);
-        $orders = $batch->orders()->with('recipient')->with('shipmentAddress')->paginate(20);
+
+        $orders = $batch->orders()->with(['recipient','shipmentAddress']);
+
+        if ($request->send === 'true') {
+            $orders = $orders->whereHas('shipmentAddress', function($query){
+                            $query->whereNotNull('shipment_addresses.tracking_number');
+                        });
+        }
+
+        if ($request->send === 'false') {
+            $orders = $orders->whereHas('shipmentAddress', function($query){
+                            $query->whereNull('shipment_addresses.tracking_number');
+                        });
+        }
+
+        $orders = $orders->orderBy('id','DESC')->paginate(20);
         $sizes = $this->getSizes();
-        return view('batch-view', compact('batch', 'orders', 'sizes'));
+
+        $is_send = $request->send === 'true';
+
+        return view('batch-view', compact('batch', 'orders', 'sizes', 'is_send'));
     }
 
     /**

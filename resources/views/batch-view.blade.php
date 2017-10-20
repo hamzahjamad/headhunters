@@ -34,7 +34,13 @@
                     @if($orders->count() == 0)
                       <div class="alert alert-info" role="alert">No orders yet..</div>
                     @else
+                    {{ app('request')->input('send') }}
                     <div class="table-responsive">
+                      <div class="btn-group pull-right" role="group">
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/batches/{{$batch->id}}'" {{app('request')->input('send') ? '' : 'disabled'}}>All</button>
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/batches/{{$batch->id}}?send=true'" {{app('request')->input('send') == 'true' ? 'disabled' : ''}}>Send</button>
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/batches/{{$batch->id}}?send=false'" {{app('request')->input('send') == 'false' ? 'disabled' : ''}}>Not Send</button>
+                      </div>  
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -53,7 +59,7 @@
                               <td>{{$order->first()->recipient->name}}</td>
                               <td>{{$order->first()->recipient->phone_number}}</td>
                               <td style="max-width: 40px;">
-                                {{$order->first()->shipmentAddress->address}}
+                                {{$order->first()->shipmentAddress()->first()->address}}
                               </td>
                               <td>
                                 @foreach($order as $o)
@@ -75,7 +81,12 @@
                                   @endif
                                 @endforeach
                               </td>
-                              <td>{{$order->first()->shipmentAddress->tracking_number}}</td>
+                              <td>
+                                {{ $order->first()->shipmentAddress()->first()->tracking_number }}
+                                @if(!$order->first()->shipmentAddress()->first()->tracking_number)
+                                  <span class="label label-default">not send yet</span>
+                                @endif
+                              </td>
                               <td>
                                 <a class="btn btn-default" href="/batches/{{$batch->id}}/recipients/{{$order->first()->recipient->id}}/edit" role="button">
                                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -88,7 +99,12 @@
                           @endforeach
                       </tbody>
                     </table>
-                    {{$orders->links()}}
+
+                    @if(app('request')->input('send'))
+                      {{ $orders->appends(['send' => app('request')->input('send')])->links() }}
+                    @else
+                      {{$orders->links()}}
+                    @endif
                   </div>
                     @endif
 
