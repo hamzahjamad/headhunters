@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Batch;
 use App\Order;
+use App\AvailableBatchType;
 
 class BatchController extends Controller
 {
@@ -47,8 +48,6 @@ class BatchController extends Controller
             'name'=>'required',
         ]);
 
-
-
         $batch = new Batch;
         $batch->name = $request->name;
 
@@ -63,6 +62,19 @@ class BatchController extends Controller
         }
 
         $batch->save();
+
+
+
+        if ($request->type) {
+            foreach ($request->type as $color => $sleeve) {
+                foreach ($sleeve as $k => $v) {
+                    $available_type = new AvailableBatchType;
+                    $available_type->batch_id = $batch->id;
+                    $available_type->name = ucwords($color .' '.str_replace("_"," ",$k));
+                    $available_type->save();
+                }
+            }
+        }
 
 
         return redirect('batches');

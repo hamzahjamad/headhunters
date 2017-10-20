@@ -54,11 +54,11 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         @if(Auth::user()->have_access)
-                                        <a href="/users">
-                                            All Users
-                                        </a>
                                         <a href="/batches">
                                             All Batches
+                                        </a>
+                                        <a href="/users">
+                                            All Users
                                         </a>
                                         @endif
                                         <a href="{{ route('logout') }}"

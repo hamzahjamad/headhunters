@@ -24,6 +24,35 @@
                         <input type="file" name="design">
                         <p class="help-block">Put design over here</p>
                       </div>
+                      <hr>
+
+                      <h5><b>Type*</b></h5>
+
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="type[black][long_sleeve]" checked> Black Long Sleeve
+                        </label>
+                      </div>
+
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="type[black][short_sleeve]" checked> Black Short Sleeve
+                        </label>
+                      </div>
+
+
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="type[white][long_sleeve]" checked> White Long Sleeve
+                        </label>
+                      </div>
+
+
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="type[white][short_sleeve]" checked> White Short Sleeve
+                        </label>
+                      </div>
 
                       <button type="submit" class="btn btn-default">Save</button>
                     {!! Form::close() !!}

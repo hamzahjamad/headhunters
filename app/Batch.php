@@ -10,4 +10,9 @@ class Batch extends Model
     {
     	return $this->hasMany(Order::class);
     }
+
+    public function types()
+    {
+    	return $this->hasMany(AvailableBatchType::class);
+    }
 }

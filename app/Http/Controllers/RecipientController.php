@@ -32,9 +32,12 @@ class RecipientController extends Controller
      */
     public function create($bid)
     {
-        $shirts = $this->getShirts();
         $sizes = $this->getSizes();
         $batch = Batch::find($bid);
+        $types = $batch->types->pluck('name')->toArray();
+        $shirts = collect($this->getShirts())->filter(function ($value, $key) use ($types) {
+                        return in_array($value->name, $types);
+                  }); 
         return view('recipient-modify', compact('shirts', 'sizes', 'bid', 'batch'));
     }
 
@@ -100,9 +103,12 @@ class RecipientController extends Controller
      */
     public function edit($bid, $id)
     {        
-        $shirts = $this->getShirts();
         $sizes = $this->getSizes();
         $batch = Batch::find($bid);
+        $types = $batch->types->pluck('name')->toArray();
+        $shirts = collect($this->getShirts())->filter(function ($value, $key) use ($types) {
+                        return in_array($value->name, $types);
+                  }); 
         $orders = Order::where('recipient_id', $id)->get(); 
         return view('recipient-modify', compact('shirts', 'sizes', 'bid', 'batch', 'orders'));
     }
