@@ -2,7 +2,7 @@
 
 ## About HeadHunters
 
-Headhunters is... what matter is i create it using Laravel.
+Headhunters is a local Tshirt brand in Sabah known as Headhunter Clothing, while this is a simple webapp to manage the orders. This webapp are build on top Laravel framework. 
 
 ## Setting Up
 
@@ -21,7 +21,7 @@ Interested on testing it on your own machine? Read this list on how to make it w
 
 ## Demo Site
 
-Too lazy to set it up on your machine? Here try the demo site i set up on Heroku.
+Too lazy to set it up on your machine? Here try the demo site on Heroku.
 
 http://headhunters-demo.herokuapp.com
 
@@ -37,13 +37,16 @@ Try login using these email , the password is "secret" , without the quote
 * shufflin@mailinator.com
 * killbill@mailinator.com
 
-Please note, the database will be reset every one hour. So, dont expect the data is permanent.
+Please note, the database will be reset every one hour. So, every data you create and save on the demo site will perish.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## Screenshots
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Well, the design is very basic. But i will put it here anyway.
+
+### Batch
+![Alt text](public/images/headhunter-create-batch.png?raw=true "Title")
+
 
 ## Security Vulnerabilities
 
