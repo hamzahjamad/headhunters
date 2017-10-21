@@ -45,7 +45,31 @@ Please note, the database will be reset every one hour. So, every data you creat
 Well, the design is very basic. But i will put it here anyway.
 
 ### Batch
-![Alt text](public/images/headhunter-create-batch.png?raw=true "Title")
+Creating a batch
+![create batch](public/images/headhunter-create-batch.png?raw=true "Creating a batch")
+
+Viewing all batch
+![all batch](public/images/headhunter-all-batch.png?raw=true "Viewing all batch")
+
+Viewing one batch
+![view batch](public/images/headhunter-view-batch.png?raw=true "Viewing one batch")
+
+
+### Order
+Creating a order
+![create order](public/images/headhunter-create-order-part-1.png?raw=true "Creating a order part 1")
+
+![create order](public/images/headhunter-create-order-part-2.png?raw=true "Creating a order part 2")
+
+![create order](public/images/headhunter-create-order-part-3.png?raw=true "Creating a order part 3")
+
+![create order](public/images/headhunter-create-order-part-4.png?raw=true "Creating a order part 4")
+
+
+View all order
+![view order](public/images/headhunter-view-order-part-1.png?raw=true "View order part 1")
+
+![view order](public/images/headhunter-view-order-part-2.png?raw=true "View order part 2")
 
 
 ## Security Vulnerabilities
