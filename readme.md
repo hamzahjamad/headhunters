@@ -21,7 +21,23 @@ Interested on testing it on your own machine? Read this list on how to make it w
 
 ## Demo Site
 
-Too lazy to set it up on your machine? Currently i'm setting up a demo server, so stay tune.
+Too lazy to set it up on your machine? Here try the demo site i set up on Heroku.
+
+http://headhunters-demo.herokuapp.com
+
+Try login using these email , the password is "secret" , without the quote
+* johnwick@mailinator.com
+* hangtuah@mailinator.com
+* annabelle@mailinator.com
+* grimreaper@mailinator.com
+* goblin@mailinator.com
+* narutouzumaki@mailinator.com
+* asadi@mailinator.com
+* sasuke@mailinator.com
+* shufflin@mailinator.com
+* killbill@mailinator.com
+
+Please note, the database will be reset every one hour. So, dont expect the data is permanent.
 
 ## Learning Laravel
 
