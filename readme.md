@@ -2,7 +2,7 @@
 
 ## About HeadHunters
 
-Headhunters is a local Tshirt brand in Sabah known as Headhunter Clothing, while this is a simple webapp to manage the orders. This webapp are build on top Laravel framework. 
+Headhunters is a local Tshirt brand in Sabah known as Headhunter Clothing, meanwhile this is a simple webapp to manage the orders. This webapp are build on top Laravel framework. 
 
 ## Setting Up
 
