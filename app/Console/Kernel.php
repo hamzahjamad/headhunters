@@ -25,8 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('site:reset-test-app')
+        if (env('APP_ENV') == 'local') {
+            $schedule->command('site:reset-test-app')
                  ->hourlyAt(30);
+        }
     }
 
     /**
